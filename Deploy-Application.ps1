@@ -140,7 +140,7 @@ Try {
 
 		## <Perform Installation tasks here>
 
-		$exitCode = Execute-MSI -Action "Install" -Path "$dirFiles\EMC.CaptivaCloud.Toolkit.msi" -Parameters '/QN REBOOT=reallysuppress' -WindowStyle "Hidden" -PassThru
+		$exitCode = Execute-MSI -Action "Install" -Path "$dirFiles\EMC.CaptivaCloud.Toolkit.msi" -Parameters '/QN REBOOT=reallysuppress'
         If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 		##*===============================================
@@ -184,7 +184,7 @@ Try {
 
 		# <Perform Uninstallation tasks here>
 
-		$exitCode = Execute-MSI -Action "Uninstall" -Path "{0902065E-09FA-48CE-96CC-7B5A18B5C992}" -Parameters "" -WindowStyle "Hidden" -PassThru
+		$exitCode = Execute-MSI -Action "Uninstall" -Path "{0902065E-09FA-48CE-96CC-7B5A18B5C992}" -Parameters ""
         If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 		##*===============================================
