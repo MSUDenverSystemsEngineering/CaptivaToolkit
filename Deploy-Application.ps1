@@ -140,7 +140,7 @@ Try {
 
 		## <Perform Installation tasks here>
 
-		$exitCode = Execute-MSI -Action "Install" -Path "$dirFiles\EMC.CaptivaCloud.Toolkit.msi" -Parameters '/QN REBOOT=reallysuppress'
+		$exitCode = Execute-MSI -Action "Install" -Path "$dirFiles\EMC.CaptivaCloud.Toolkit.msi" -Parameters '/qn REBOOT=reallysuppress'
         If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 		##*===============================================
@@ -184,7 +184,7 @@ Try {
 
 		# <Perform Uninstallation tasks here>
 
-		$exitCode = Execute-MSI -Action "Uninstall" -Path "{0902065E-09FA-48CE-96CC-7B5A18B5C992}" -Parameters ""
+		$exitCode = Execute-MSI -Action "Uninstall" -Path "{0902065E-09FA-48CE-96CC-7B5A18B5C992}" -Parameters "/norestart"
         If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 		##*===============================================
